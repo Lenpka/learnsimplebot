@@ -3,7 +3,8 @@ import asyncio
 from config.config import Config, load_config
 from aiogram.filters import Command
 from aiogram import Bot, Dispatcher
-async def main() -> None:
+from create_disp import disp
+async def main(disp = Dispatcher()) -> None:
     config: Config = load_config()
     logging.basicConfig(
         level= logging.getLevelName(level = config.log.level),
@@ -15,4 +16,4 @@ async def main() -> None:
     await bot.delete_webhook(drop_pending_updates=True)
     await disp.start_polling(bot)
 
-asyncio.run(main())
+asyncio.run(main(disp))

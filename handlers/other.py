@@ -1,6 +1,7 @@
 import asyncio 
 from aiogram.types import Message
 from lexicon.lexicon import LEXICON_RU
+from create_disp import disp
 @disp.message()
 async def other(message:Message):
     try:
